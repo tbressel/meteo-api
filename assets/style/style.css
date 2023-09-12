@@ -1,21 +1,17 @@
 :root {
     --whiteFF: #FFFFFF;
-}
+    --aquablue: #3ae1ea;
 
+}
 @font-face {
     font-family: 'NotoSansSyriacEastern';
     src: url(../fonts/Noto_Sans_Syriac_Eastern/NotoSansSyriacEastern-VariableFont_wght.ttf);
 }
-
-
-
 html {
     font-family: 'NotoSansSyriacEastern';
     font-size: 18px;
     font-weight: 400;
-   
 }
-
 body {
     height: 100vh;
     background-image: url(../medias/img/clouds2.jpg);
@@ -24,7 +20,6 @@ body {
     background-repeat: no-repeat;
     animation: backimage 240s  infinite forwards;
 }
-
 @keyframes backimage {
     0% {
         background-position: left;
@@ -36,29 +31,24 @@ body {
         background-position: left;
     }
 }
-
 h1 {
     font-size: 100px;
     font-weight: 200;
-
 }
 h2 {
     font-size: 32px;
     font-weight: 600;
 }
-
-
 .color-white {
     color: var(--whiteFF);
 }
-
 .header {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     padding-top: 10px;
-  
+ 
 }
 .town,
 .temp,
@@ -75,4 +65,37 @@ h2 {
 .humidity {
     margin-left: 10px;
     margin-right: 10px;
+}
+.footer__container {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px 20px 0 0;
+    width: 100vw;
+    height: 60px;
+    background-color: var(--aquablue);
+}
+.footer__container.active {
+    height: 60vh;
+}
+.burger__container {
+    width: 50px;
+    height: 50px;
+}
+.burger-icon,
+.burger-icon div {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7px;
+}
+.burger-icon {
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.burger-icon div {
+    border: 2px solid black;
+    width: 80%;
 }
