@@ -17,8 +17,8 @@ async function fetchWeatherDatas(url) {
 
 
 // Get json data from api
-async function getJsonFromApi (method, town, apikey) {
-    const urlApi = `http://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}&lang=fr`;
+async function getJsonFromApi (method, town, apikey, lang) {
+    const urlApi = `http://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}&lang=${lang}`;
     
     // execution of async function
     await fetchWeatherDatas(urlApi);
@@ -32,7 +32,7 @@ async function getJsonFromApi (method, town, apikey) {
     console.table(weather);
 }
 
-
+// Display information in header
 function displayCurrentWeather(jsondatas) {
     const cityName = jsondatas.location.name;
     document.getElementById("town").lastElementChild.textContent = cityName;
@@ -48,6 +48,15 @@ function displayCurrentWeather(jsondatas) {
     
     const humidity = jsondatas.current.humidity;
     document.getElementById("humidity").lastElementChild.textContent = `${humidity} %`;
+}
 
+
+function getCityName () {
+    const form = document.getElementById("search-form");
+    const inputElement = document.getElementById("search-input");
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        getJsonFromApi (defaultMethod,`${inputElement.value}`, apiKey, defaultLanguage);
+    });
 }
 
