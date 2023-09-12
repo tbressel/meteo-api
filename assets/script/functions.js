@@ -17,7 +17,7 @@ async function fetchWeatherDatas(url) {
 
 
 // Get json data from api
-async function getJsonFromApi (method, town, apikey, lang) {
+async function getWeatherInformations (method, town, apikey, lang) {
     const urlApi = `http://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}&lang=${lang}`;
     
     // execution of async function
@@ -50,13 +50,42 @@ function displayCurrentWeather(jsondatas) {
     document.getElementById("humidity").lastElementChild.textContent = `${humidity} %`;
 }
 
-
+// Get city name entered by the use from the input field
 function getCityName () {
+    getCurrentInput()
     const form = document.getElementById("search-form");
     const inputElement = document.getElementById("search-input");
     form.addEventListener("submit", function(event) {
         event.preventDefault();
-        getJsonFromApi (defaultMethod,`${inputElement.value}`, apiKey, defaultLanguage);
+        setBurgerMenu(false);
+        getScrollToTheTop();
+        getWeatherInformations (defaultMethod,`${inputElement.value}`, apiKey, defaultLanguage);
     });
 }
+
+// different ways to controle burger menu
+function setBurgerMenu(state) {
+    const burgerElement = document.getElementById("footer__container").classList;
+    if (state === undefined) {
+        burgerElement.toggle("active")
+    };
+    state ? burgerElement.add("active") : burgerElement.remove("active");
+}
+
+// get back to the top window
+function getScrollToTheTop() {
+    window.scrollTo({top:0, behavior: "smooth"})
+}
+
+// function to ask api at each enter
+function getCurrentInput() {
+    const form = document.getElementById("search-form");
+    const inputElement = document.getElementById("search-input");
+    form.addEventListener("input", function(event) {
+        event.preventDefault();
+        getWeatherInformations (defaultMethod,`${inputElement.value}`, apiKey, defaultLanguage);
+   
+}
+    )};
+
 
