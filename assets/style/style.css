@@ -1,0 +1,20 @@
+body {
+    height: 100vh;
+    background-image: url(../medias/img/clouds.jpg);
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: backimage 240s  infinite forwards;
+}
+
+@keyframes backimage {
+    0% {
+        background-position: left;
+    }
+    50% {
+        background-position: right;   
+    }
+    100% {
+        background-position: left;
+    }
+}
