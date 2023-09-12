@@ -1,9 +1,19 @@
 :root {
     --whiteFF: #FFFFFF;
 }
+
+@font-face {
+    font-family: 'NotoSansSyriacEastern';
+    src: url(../fonts/Noto_Sans_Syriac_Eastern/NotoSansSyriacEastern-VariableFont_wght.ttf);
+}
+
+
+
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'NotoSansSyriacEastern';
     font-size: 18px;
+    font-weight: 400;
+   
 }
 
 body {
@@ -29,9 +39,12 @@ body {
 
 h1 {
     font-size: 100px;
+    font-weight: 200;
+
 }
 h2 {
-    font-size: 26px;
+    font-size: 32px;
+    font-weight: 600;
 }
 
 
@@ -44,21 +57,22 @@ h2 {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding-top: 10px;
   
 }
 .town,
 .temp,
 .description,
-.maxmintemp {
-    padding-top : 2%
+.wind-humidity {
+    padding-top : 5%;
 }
-.maxmintemp {
+.wind-humidity {
     display: flex;
     flex-direction: row;
     font-size: 26px;
 }
-.maxtemp,
-.mintemp {
+.wind,
+.humidity {
     margin-left: 10px;
     margin-right: 10px;
 }
