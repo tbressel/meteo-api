@@ -1,21 +1,18 @@
 :root {
     --whiteFF: #FFFFFF;
-}
+    --aquablue: #3ae1ea;
+    --aquablue-alpha: #3ae1ea70;
 
+}
 @font-face {
     font-family: 'NotoSansSyriacEastern';
     src: url(../fonts/Noto_Sans_Syriac_Eastern/NotoSansSyriacEastern-VariableFont_wght.ttf);
 }
-
-
-
 html {
     font-family: 'NotoSansSyriacEastern';
     font-size: 18px;
     font-weight: 400;
-   
 }
-
 body {
     height: 100vh;
     background-image: url(../medias/img/clouds2.jpg);
@@ -24,7 +21,6 @@ body {
     background-repeat: no-repeat;
     animation: backimage 240s  infinite forwards;
 }
-
 @keyframes backimage {
     0% {
         background-position: left;
@@ -36,29 +32,24 @@ body {
         background-position: left;
     }
 }
-
 h1 {
     font-size: 100px;
     font-weight: 200;
-
 }
 h2 {
     font-size: 32px;
     font-weight: 600;
 }
-
-
 .color-white {
     color: var(--whiteFF);
 }
-
 .header {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     padding-top: 10px;
-  
+ 
 }
 .town,
 .temp,
@@ -75,4 +66,75 @@ h2 {
 .humidity {
     margin-left: 10px;
     margin-right: 10px;
+}
+.footer__container {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+    width: 100vw;
+    height: 70px;
+    background-color: var(--aquablue-alpha);
+    transition: 500ms ease-in-out;
+}
+.footer__container.active {
+    transition: 500ms ease-in-out;
+    height: 60vh;
+}
+.burger__container {
+    width: 50px;
+    height: 50px;
+}
+.burger-icon,
+.burger-icon div {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7px;
+}
+.burger-icon {
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.burger-icon div {
+    border: 2px solid black;
+    width: 80%;
+}
+
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    width: 100%;
+}
+.search-input {
+    height: 30px;
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 18px;
+    border-radius: 10px;
+    transition: 500ms ease-in-out;
+}
+.search-input:focus {
+    font-size: 22px;
+    height: 40px;
+    transition: 500ms ease-in-out;
+}
+
+.btn-glass {
+    border-radius: 30px;
+
+    margin-right: 5%;
+}
+.btn-glass img {
+    padding: 5px;
+    height: 30px;
 }

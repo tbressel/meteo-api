@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,19 @@
     <link rel="stylesheet" href="./assets/style/reset.css">
     <link rel="stylesheet" href="./assets/style/style.css">
 </head>
+
 <body>
     <header class="header">
         <div id="town" class="town">
-                <h2 class="color-white">Bayeux</h2>
-          </div>
+            <h2 class="color-white">Bayeux</h2>
+        </div>
         <div id="temp" class="temp">
             <h1 class="color-white">18°</h1>
         </div>
         <div id="condition" class="description">
             <p class="color-white">Nuages prédominants</p>
         </div>
-
         <div id="wind-humidity" class="wind-humidity">
-
             <div id="wind" class="wind">
                 <span class="color-white">6,5</span>
             </div>
@@ -32,12 +32,26 @@
         </div>
     </header>
 
-
-
-
-
+    <footer>
+        <div id="footer__container" class="footer__container">
+            <div  id="burger-button" class="burger__container">
+                <div class="burger-icon">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <form  id="search-form" class="search-form">
+                <label for="search-input"></label>
+                <input  id="search-input" class="search-input" type="text" list="city-list" name="city" placeholder="la ville de votre choix">
+                <!-- <datalist id="city-list"></datalist> -->
+                <button class="btn-glass" type="submit"><img src="/assets/medias/svg/magnyfying-glass-location.svg"></button>
+            </form>           
+        </div>
+    </footer>
 
     <script src="./assets/script/functions.js"></script>
     <script src="./assets/script/script.js"></script>
 </body>
+
 </html>
