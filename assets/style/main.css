@@ -1,0 +1,60 @@
+.main-container,
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--black00);
+}
+.header-container {
+    height: 30px;
+    margin-top: 30px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.main-container {
+    height: fit-content;
+    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px ;
+    background-color: var(--black00-alpha);
+}
+
+.header-container.sticky {
+    position: sticky;
+    top: 0;
+}
+
+.hour-by-hour{
+    height: 100px;
+}
+.hour-by-hour__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: scroll;
+}
+
+.hour-li {
+    text-align: center;
+    font-size: 16px;
+    padding: 2px;
+}
+.image-weather{
+    width: 80px;
+    height: 80px;
+}
+.ten-days-weather {
+    height:600px
+}
+.air-quality {
+    height: 60px;
+}
+.temp {
+    height: fit-content;
+    padding-bottom: 10px;
+}
