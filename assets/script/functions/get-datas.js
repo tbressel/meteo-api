@@ -29,7 +29,13 @@ async function getWeatherInformations (method, town, apikey, lang) {
 
     // Display current weather with default location
     displayCurrentWeather(weather);
-    // console.table(weather);
+
+    // get forecast hour by hour
+    const forecast = getForecastHourByHour(weather);
+
+    // display forecast hour by hour
+    displayForecastHourByHour(forecast)
+    console.log(weather);
     return weather;
 }
 
@@ -47,7 +53,8 @@ function getCityName () {
     });
 }
 
-
-
-
+// Get forecast infomations hour by hour
+function getForecastHourByHour (array) {
+    return array.forecast.forecastday[0].hour;
+    }
 

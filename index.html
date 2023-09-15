@@ -44,12 +44,18 @@
     </div>
     <div class="hide-container">
         <div id="hour-by-hour-content" class="main-container hour-by-hour__content ">
-            <p class="color-grey">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi quos labore obcaecati ducimus repudiandae iste fuga magnam, molestiae officiis molestias, doloremque optio. Quasi, quia. Unde, laborum? Nesciunt facilis quia saepe.
-            </p>
+            <ul id="hour-by-hour-list" class="hour-by-hour__list">
+            </ul>
         </div>
     </div>
     
+<template id="hour-li-template">
+    <li class="hour-li">
+        <p  class="hour color-white"></p>
+        <img class="image-weather" src="" alt="image">
+        <p class="temp color-white"></p>
+    </li>
+</template>
 
 
 
@@ -89,7 +95,7 @@
             </div>
             <form  id="search-form" class="search-form">
                 <label for="search-input"></label>
-                <input  id="search-input" class="search-input" type="text" list="city-list" name="city" placeholder="la ville de votre choix">
+                <input  id="search-input" class="search-input" type="text" list="city-list" name="city" placeholder="la ville de votre choix" required>
                 <!-- <datalist id="city-list"></datalist> -->
                 <button class="btn-glass" type="submit"><img src="/assets/medias/svg/magnyfying-glass-location.svg"></button>
             </form>           

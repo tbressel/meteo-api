@@ -15,3 +15,16 @@ function displayCurrentWeather(jsondatas) {
     const humidity = jsondatas.current.humidity;
     document.getElementById("humidity").lastElementChild.textContent = `${humidity} %`;
 }
+// Display forecaste hour by hour
+function displayForecastHourByHour (array) {
+    const hourByHourNode = document.getElementById('hour-by-hour-list');
+    for (const h of array) {
+        const templateNode = document.getElementById("hour-li-template");
+        const templateClone = document.importNode(templateNode.content, true);
+        const hourFormat = h.time.split(' ');
+        templateClone.querySelector('.hour').textContent =hourFormat[1];
+        templateClone.querySelector('.image-weather').setAttribute("src",`https://${h.condition.icon}`);
+        templateClone.querySelector('.temp').textContent = h.temp_c+`°`;
+    hourByHourNode.appendChild(templateClone)
+}
+}

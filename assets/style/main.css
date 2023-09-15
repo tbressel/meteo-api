@@ -7,7 +7,8 @@
     margin-left: auto;
     margin-right: auto;
     padding-top: 10px;
-    padding-left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: var(--black00);
 }
 .header-container {
@@ -31,6 +32,22 @@
 .hour-by-hour{
     height: 100px;
 }
+.hour-by-hour__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: scroll;
+}
+
+.hour-li {
+    text-align: center;
+    font-size: 16px;
+    padding: 2px;
+}
+.image-weather{
+    width: 80px;
+    height: 80px;
+}
 .ten-days-weather {
     height:600px
 }
@@ -38,5 +55,6 @@
     height: 60px;
 }
 .temp {
-    height: 80px;
+    height: fit-content;
+    padding-bottom: 10px;
 }
