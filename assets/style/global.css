@@ -1,0 +1,63 @@
+:root {
+    --black00: #000000;
+    --black00-alpha: #00000044;
+    --whiteFF: #FFFFFF;
+    --grey95:#9f9f9f;
+    --aquablue: #3ae1ea;
+    --aquablue-alpha: #3ae1ea70;
+    --aquablue-alpha2: #3ae1ea2e;
+
+}
+@font-face {
+    font-family: 'NotoSansSyriacEastern';
+    src: url(../fonts/Noto_Sans_Syriac_Eastern/NotoSansSyriacEastern-VariableFont_wght.ttf);
+}
+html {
+    font-family: 'NotoSansSyriacEastern';
+    font-size: 18px;
+    font-weight: 400;
+}
+main {
+    padding-bottom: 1000px;
+}
+ body {
+    height: 100vh;
+    background: fixed;
+    background-image: url(../medias/img/clouds2.jpg);
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: backimage 240s  infinite forwards;
+}
+
+@keyframes backimage {
+    0% {
+        background-position: left;
+    }
+    50% {
+        background-position: right;   
+    }
+    100% {
+        background-position: left;
+    }
+} 
+h1 {
+    font-size: 80px;
+    font-weight: 200;
+}
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.color-white {
+    color: var(--whiteFF);
+}
+.color-grey {
+    color: var(--grey95);
+}
