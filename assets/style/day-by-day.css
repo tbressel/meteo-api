@@ -1,5 +1,7 @@
 
 .day-by-day__list {
+    position: relative;
+    z-index: -1;
     display: flex;
     flex-direction: column;
     width: 100%;
