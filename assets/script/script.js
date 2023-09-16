@@ -3,9 +3,10 @@ const apiKey = "747688c35ef841a3bba95053231109";
 const defaultTown = 'Paris';
 const defaultMethod = '/forecast.json';
 const defaultLanguage = 'fr';
+const defaultForecastday = 14;
 let weather = [];
 
-getWeatherInformations(defaultMethod, defaultTown, apiKey, defaultLanguage).then(data => {
+getWeatherInformations(defaultMethod, defaultTown, apiKey, defaultLanguage, defaultForecastday).then(data => {
     // if all is ok just copy data into global weather
     weather = data;
 })

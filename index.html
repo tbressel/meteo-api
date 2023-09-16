@@ -71,16 +71,17 @@
     </div>
 </div>
 
-<template>
+<template id="day-li-template">
     <li class="day-by-day-li">
-        <p class="day color-white">Dim.</p>
+        <p class="day color-white"></p>
         <div class="image-day">
             <img class="image-weather" src="" alt="image">
-            <p class="humidity color-white">90%</p>
+            <p class="humidity color-white"></p>
         </div>
-        <p class="mintemp color-white">16°</p>
-        <p class="uv"><meter value="0.25"></meter></p>
-        <p class="maxtemp color-white">25°</p>
+        <p id="mintemp" class="mintemp color-white"></p>
+        <p id="uv" class="uv">
+            <meter value="" min="0" max="16"></meter></p>
+        <p id="maxtemp" class="maxtemp color-white"></p>
     </li>
 </template>
 

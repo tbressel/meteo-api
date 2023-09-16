@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-
 }
 
 .day-by-day-li {
@@ -14,11 +13,28 @@
     font-size: 16px;
     padding: 2px;
 }
+.day,
+.image-day,
+.mintemp,
+.maxtemp {
+    width: 15%;
+}
+
+.uv {
+    width: 35%
+}
+meter {
+    width: 100%;
+}
 .image-day{
     display: block;
-    text-align: center;
-    
+    text-align: center;   
 }
-.humidity {
-    margin: 10px;
+.day-by-day-li .image-weather {
+    width: 40px;
+    height: 40px;
+}
+.day-by-day-li .humidity,
+.day {
+   font-size: 10px;
 }

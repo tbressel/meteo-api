@@ -28,3 +28,25 @@ function displayForecastHourByHour (array) {
     hourByHourNode.appendChild(templateClone)
 }
 }
+// Display forecaste day by day
+function displayForecastDayByDay(days) {
+    console.log(days)
+    const dayByDayNode = document.getElementById('day-by-day-list');
+    const templateNode = document.getElementById("day-li-template");
+    for (const day of days) {
+        const templateClone = document.importNode(templateNode.content, true);
+        templateClone.querySelector(".day").textContent = day.weekdayFr;
+        templateClone.querySelector(".image-weather").setAttribute("src", `https://${day.condition}`);
+        templateClone.querySelector('.humidity').textContent = `${day.humidity}%`;
+        templateClone.querySelector(".mintemp").textContent = `${day.minTemp}°`;
+        templateClone.querySelector(".uv meter").setAttribute("value", day.uv);
+        templateClone.querySelector(".maxtemp").textContent = `${day.maxTemp}°`;
+        dayByDayNode.append(templateClone);
+    }
+}
+
+ 
+    // templateClone.querySelector(".day").textContent = array.
+
+    //     templateClone.querySelector('.day-by-day-li.image-weather').setAttribute("src", `https://${object.condition.icon}`);
+    // dayByDayNode.appendChild(templateClone)
