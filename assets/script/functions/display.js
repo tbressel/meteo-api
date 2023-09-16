@@ -30,7 +30,7 @@ function displayForecastHourByHour (array) {
 }
 // Display forecaste day by day
 function displayForecastDayByDay(days) {
-    console.log(days)
+
     const dayByDayNode = document.getElementById('day-by-day-list');
     const templateNode = document.getElementById("day-li-template");
     for (const day of days) {
@@ -45,8 +45,11 @@ function displayForecastDayByDay(days) {
     }
 }
 
- 
-    // templateClone.querySelector(".day").textContent = array.
+// Display actual weather by IP
+function displayLocalWeatherByIP (Location) {
+    getWeatherInformations(defaultMethod, Location, apiKey, defaultLanguage, forcastDays).then(data => {
+            // if all is ok just copy data into global weather
+            weather = data;
+        })
+}
 
-    //     templateClone.querySelector('.day-by-day-li.image-weather').setAttribute("src", `https://${object.condition.icon}`);
-    // dayByDayNode.appendChild(templateClone)
