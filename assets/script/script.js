@@ -2,13 +2,22 @@
 const apiKey = "747688c35ef841a3bba95053231109";
 const defaultTown = 'Paris';
 const defaultMethod = '/forecast.json';
+const IPLocationMethod = '/ip.json';
 const defaultLanguage = 'fr';
+const forcastDays = 14;
 let weather = [];
+let LocationByIp = '' ;
 
-getWeatherInformations(defaultMethod, defaultTown, apiKey, defaultLanguage).then(data => {
+getLocalisationCitybyIP(IPLocationMethod, apiKey).then(data => {
     // if all is ok just copy data into global weather
-    weather = data;
+    LocationByIp = data;
+    displayLocalWeatherByIP(LocationByIp)
 })
+// getWeatherInformations(defaultMethod, defaultTown, apiKey, defaultLanguage).then(data => {
+//     // if all is ok just copy data into global weather
+//     weather = data;
+// })
+
 
 
 // Listening to the burger button and toggle 

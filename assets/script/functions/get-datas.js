@@ -1,11 +1,11 @@
 // API Connexion
-async function fetchWeatherDatas(url) {
+async function fetchWeatherDatas(storageName, url) {
     // try to connect
     try {
         const response = await fetch(url);
         const data = await response.json();
         // Stock in local storage
-        localStorage.setItem("Json", JSON.stringify(data));
+        localStorage.setItem(storageName, JSON.stringify(data));
         return data
     }
     // if not, let show a client message
@@ -20,7 +20,7 @@ async function getWeatherInformations (method, town, apikey, lang, forecastday) 
     const urlApi = `http://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}&lang=${lang}&days=${forecastday}`;
 
     // execution of async function
-    await fetchWeatherDatas(urlApi);
+    await fetchWeatherDatas("Json",urlApi);
 
     // get my Json from local storage
     weather = JSON.parse(localStorage.getItem("Json"));
@@ -40,12 +40,8 @@ async function getWeatherInformations (method, town, apikey, lang, forecastday) 
     // display forecast day by day
       displayForecastDayByDay(forecastDay)
 
-    console.log(weather);
-    console.log(forecastDay);
     return weather;
 }
-
-
 
 // Get city name entered by the use from the input field
 function getCityName () {
@@ -55,7 +51,7 @@ function getCityName () {
         event.preventDefault();
         setBurgerMenu(false);
         getScrollToTheTop();
-        getWeatherInformations (defaultMethod,`${inputElement.value}`, apiKey, defaultLanguage);
+        getWeatherInformations (defaultMethod,`${inputElement.value}`, apiKey, defaultLanguage,forcastDays);
     });
 }
 
@@ -89,3 +85,16 @@ function getForecastDayByDay(array) {
     return arrayDayByDay;
 }
 
+// function to get IP from actual location usin ip.json method
+async function getLocalisationCitybyIP (method, apikey) {
+    const urlApi = `http://api.weatherapi.com/v1${method}?key=${apikey}&q=auto:ip`;
+
+    // execution of async function
+    await fetchWeatherDatas("IP", urlApi);
+
+    // get my Json from local storage
+    ipLocation = JSON.parse(localStorage.getItem("IP"));
+    console.log(ipLocation)
+
+    return ipLocation.city;
+}
