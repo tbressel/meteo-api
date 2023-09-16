@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="./assets/style/global.css">
     <link rel="stylesheet" href="./assets/style/header.css">
     <link rel="stylesheet" href="./assets/style/main.css">
+
+    <link rel="stylesheet" href="./assets/style/hour-by-hour.css">
+    <link rel="stylesheet" href="./assets/style/day-by-day.css">
     <link rel="stylesheet" href="./assets/style/footer-nav.css">
 </head>
 
@@ -57,18 +60,29 @@
     </li>
 </template>
 
-
-
-    <div id="ten-days-forcast-title" class="header-container ten-days-forcast__title">
-        <h3 class="color-grey">Prévisions sur 10 jours</h3>
+<div id="day-by-day-title" class="header-container day-by-day__title">
+    <h3 class="color-grey">Prévisions sur 14 jours</h3>
+</div>
+<div class="hide-container">
+    <div id="day-by-day-content" class="main-container day-by-day__content ">
+        <ul id="day-by-day-list" class="day-by-day__list">
+            
+        </ul>
     </div>
-    <div id="ten-days-forcast-content" class="main-container ten-days-forcast__content ">
-        <p class="color-grey">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi quos labore obcaecati ducimus repudiandae iste fuga magnam, molestiae officiis molestias, doloremque optio. Quasi, quia. Unde, laborum? Nesciunt facilis quia saepe.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda iste harum, exercitationem alias doloribus, nemo hic beatae sunt odio eligendi nostrum tempore minus expedita. Reprehenderit eligendi ad aliquid? Quas, atque.
-        </p>
-    </div>
+</div>
 
+<template>
+    <li class="day-by-day-li">
+        <p class="day color-white">Dim.</p>
+        <div class="image-day">
+            <img class="image-weather" src="" alt="image">
+            <p class="humidity color-white">90%</p>
+        </div>
+        <p class="mintemp color-white">16°</p>
+        <p class="uv"><meter value="0.25"></meter></p>
+        <p class="maxtemp color-white">25°</p>
+    </li>
+</template>
 
 
     <div id="air-quality-title" class="header-container air-quality__title">
