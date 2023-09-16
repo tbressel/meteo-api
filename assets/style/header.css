@@ -14,7 +14,7 @@
 .wind-humidity {
     display: flex;
     flex-direction: row;
-    font-size: 26px;
+    font-size: 22px;
 }
 .wind,
 .humidity {

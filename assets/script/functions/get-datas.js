@@ -15,11 +15,9 @@ async function fetchWeatherDatas(url) {
 }
 
 
-
-
 // Get json data from api
-async function getWeatherInformations (method, town, apikey, lang) {
-    const urlApi = `http://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}&lang=${lang}`;
+async function getWeatherInformations (method, town, apikey, lang, forecastday) {
+    const urlApi = `http://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}&lang=${lang}&days=${forecastday}`;
 
     // execution of async function
     await fetchWeatherDatas(urlApi);
@@ -31,11 +29,19 @@ async function getWeatherInformations (method, town, apikey, lang) {
     displayCurrentWeather(weather);
 
     // get forecast hour by hour
-    const forecast = getForecastHourByHour(weather);
+    let forecastHour = getForecastHourByHour(weather);
 
     // display forecast hour by hour
-    displayForecastHourByHour(forecast)
+    displayForecastHourByHour(forecastHour);
+    
+    // get forecast day by day
+    let forecastDay =  getForecastDayByDay(weather)
+    
+    // display forecast day by day
+      displayForecastDayByDay(forecastDay)
+
     console.log(weather);
+    console.log(forecastDay);
     return weather;
 }
 
@@ -57,4 +63,29 @@ function getCityName () {
 function getForecastHourByHour (array) {
     return array.forecast.forecastday[0].hour;
     }
+// Get forecast infomations day by day
+function getForecastDayByDay(array) {
+    let arrayDayByDay = [];
+    array.forecast.forecastday.forEach(element => {
+        const date = element.date;
+        const maxTemp = element.day.maxtemp_c;
+        const minTemp = element.day.mintemp_c;
+        const uv = element.day.uv;
+        const condition = element.day.condition.icon;
+        const humidity = element.day.avghumidity;
+
+
+        // Get the whole date en english format
+        let fullDateEn = new Date(date);
+
+        // get the french name fo the weekday
+        var weekdayFr = fullDateEn.toLocaleDateString('fr-FR', { weekday: 'long' });
+
+        // push informations into a new array returned by the function
+        arrayDayByDay.push(
+            { weekdayFr, condition, humidity, minTemp, uv, maxTemp }
+        )
+    });
+    return arrayDayByDay;
+}
 
