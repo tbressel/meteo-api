@@ -3,6 +3,7 @@
     --black00-alpha: #00000044;
     --whiteFF: #FFFFFF;
     --grey95:#9f9f9f;
+    --greyBF:#858585;
     --aquablue: #3ae1ea;
     --aquablue-alpha: #3ae1ea70;
     --aquablue-alpha2: #3ae1ea2e;
@@ -23,12 +24,22 @@ main {
  body {
     height: 100vh;
     background: fixed;
-    background-image: url(../medias/img/clouds2.jpg);
+    background-image: url(../medias/img/GrandeOurse.jpg);
     background-position: left;
     background-size: cover;
     background-repeat: no-repeat;
     animation: backimage 240s  infinite forwards;
 }
+body.dark_clouds {
+    background-image: url(../medias/img/clouds2.jpg);
+}
+body.light_clouds {
+    background-image: url(../medias/img/clouds.jpg);
+}
+body.night {
+    background-image: url(../medias/img/GrandeOurse.jpg);
+}
+
 
 @keyframes backimage {
     0% {
@@ -54,6 +65,7 @@ h3 {
     font-size: 14px;
     font-weight: 300;
     text-transform: uppercase;
+    padding-top: 5px;
 }
 .color-white {
     color: var(--whiteFF);

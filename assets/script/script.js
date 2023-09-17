@@ -5,8 +5,28 @@ const defaultMethod = '/forecast.json';
 const IPLocationMethod = '/ip.json';
 const defaultLanguage = 'fr';
 const forcastDays = 14;
+let date = new Date();
+let hour = date.getHours()
 let weather = [];
 let LocationByIp = '' ;
+let background = {
+    nuit: './medias/img/GrandeOurse.jpg',
+    nuages_sombre: './medias/img/clouds2.jpg', 
+    nuages_clair: './medias/img/clouds.jpg', 
+}
+console.log(background)
+console.log(hour)
+
+if (hour >= 23 || hour <= 4) {
+    document.querySelector("body").className = "night";
+} else if (hour >= 18 || hour <= 22) {
+    document.querySelector("body").className = "dark_clouds";
+} else if (hour >= 5 || hour <= 17) {
+    document.querySelector("body").className = "light_clouds";
+}
+
+
+
 
 // Chek if geolocation is available in this browser
 if ("geolocation" in navigator) {
@@ -18,10 +38,24 @@ if ("geolocation" in navigator) {
         const coords = `${latitude}, ${longitude}`;
         // save actual GPS coords
         localStorage.setItem("coords", coords)
+
+        if (coords === "" ) {
+            getLocalisationCitybyIP(IPLocationMethod, apiKey).then(data => {
+                // if all is ok just copy data into global weather
+                LocationByIp = data;
+                displayLocalWeatherByIP(LocationByIp)
+            })
+        }
     });
 } else {
     // if not available
     reject("La géolocalisation n'est pas disponible dans ce navigateur.");
+    getLocalisationCitybyIP(IPLocationMethod, apiKey).then(data => {
+        // if all is ok just copy data into global weather
+        LocationByIp = data;
+        displayLocalWeatherByIP(LocationByIp)
+    })
+    
 }
 
 
@@ -32,17 +66,7 @@ coords = localStorage.getItem("coords")
 getWeatherInformations(defaultMethod, coords, apiKey, defaultLanguage, forcastDays).then(data => {
     // if all is ok just copy data into global weather
     weather = data;
-    //  displayLocalWeatherByIP(weather)
 })
-
-
-
-// getLocalisationCitybyIP(IPLocationMethod, apiKey).then(data => {
-//     // if all is ok just copy data into global weather
-//     LocationByIp = data;
-//     displayLocalWeatherByIP(LocationByIp)
-// })
-
 
 
 
@@ -67,5 +91,8 @@ document.addEventListener('scroll', () => {
         // when the offsetTop of each element <= scroll top value then set the class sticky
         scrollTop >= element.offsetTop ? element.classList.add("sticky") : element.classList.remove("sticky");    });
 });
+
+
+
 
 
