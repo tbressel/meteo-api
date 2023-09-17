@@ -67,7 +67,8 @@
     flex-direction: column;
 }
 
-.uv-sun__container {
+.uv-sun__container,
+.wind-rain__container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

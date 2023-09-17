@@ -24,10 +24,20 @@ async function getWeatherInformations (method, town, apikey, lang, forecastday) 
 
     // get my Json from local storage
     weather = JSON.parse(localStorage.getItem("Json"));
-    console.log('Météo avec la méthode par defaut:', weather)
+    // console.log('Météo avec la méthode par defaut:', weather)
 
     // Display current weather with default location
     displayCurrentWeather(weather);
+
+
+    // get return data from getLocation
+    let nameLocation = getLocation(weather);
+
+    // Use them to display Location
+    displayLocation(nameLocation);
+
+
+
 
     // get forecast hour by hour
     let forecastHour = getForecastHourByHour(weather);
@@ -44,7 +54,7 @@ async function getWeatherInformations (method, town, apikey, lang, forecastday) 
 
     // get uv average informations
     const UvAverage = getUvAverage(weather)
-    console.log(UvAverage);
+    // console.log(UvAverage);
 
     // display uv average informations
     displayUvAverage(UvAverage);
@@ -137,7 +147,7 @@ async function getLocalisationCitybyIP (method, apikey) {
     await fetchWeatherDatas("IP", urlApi);
     // get my Json from local storage
     ipLocation = JSON.parse(localStorage.getItem("IP"));
-    console.log(ipLocation)
+    // console.log(ipLocation)
     return [ipLocation.city,ipLocation.country_name];
 }
 
@@ -215,7 +225,7 @@ function getIndexWhereSameHours(array) {
 
 
 function getUvAverage(weather) {
-    console.log("Tableau des type d'indice", uvStates)
+    // console.log("Tableau des type d'indice", uvStates)
 
     const uvAverage = JSON.stringify(weather.current.uv);
     const uvState = uvStates[uvAverage].state;

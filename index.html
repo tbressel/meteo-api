@@ -10,12 +10,15 @@
     <link rel="stylesheet" href="./assets/style/webkit.css">
     <link rel="stylesheet" href="./assets/style/global.css">
     <link rel="stylesheet" href="./assets/style/header.css">
+    <link rel="stylesheet" href="./assets/style/favorites.css">
     <link rel="stylesheet" href="./assets/style/main.css">
 
     <link rel="stylesheet" href="./assets/style/hour-by-hour.css">
     <link rel="stylesheet" href="./assets/style/day-by-day.css">
     <link rel="stylesheet" href="./assets/style/uv-average.css">
     <link rel="stylesheet" href="./assets/style/sun.css">
+    <link rel="stylesheet" href="./assets/style/wind.css">
+    <link rel="stylesheet" href="./assets/style/rain.css">
     <link rel="stylesheet" href="./assets/style/footer-nav.css">
 </head>
 
@@ -28,11 +31,14 @@
         <div id="temp" class="temp">
             <h1 class="color-white"></h1>
         </div>
+        <span id="favorite-star" class="favorite-star">
+            <img src="./assets/medias/svg/star-regular.svg" alt="favorite">
+        </span>
         <div id="condition" class="description">
             <p class="color-white"></p>
         </div>
-        <div id="wind-humidity" class="wind-humidity">
-            <div id="wind" class="wind">
+        <div id="feelslike-humidity" class="feelslike-humidity">
+            <div id="feelslike" class="feelslike">
                 <span class="color-white"></span>
             </div>
             <div id="humidity" class="humidity">
@@ -41,63 +47,79 @@
             </div>
         </div>
     </header>
-
+    
+    
+    
+    
     <main class="main__container">
-
-
         <section class="hour__container">
             <div id="hour-by-hour-title" class="header-container hour-by-hour__title">
                 <h3 class="color-grey">Prévisions heure par heure</h3>
             </div>
-            <!-- <div class="hide-container"> -->
                 <div id="hour-by-hour-content" class="main-container hour-by-hour__content ">
                     <ul id="hour-by-hour-list" class="hour-by-hour__list">
                     </ul>
                 </div>
-            <!-- </div> -->
         </section>
-
-
         <section class="day__container">
             <div id="day-by-day-title" class="header-container day-by-day__title">
                 <h3 class="color-grey">Prévisions sur 14 jours</h3>
             </div>
-            <!-- <div class="hide-container"> -->
                 <div id="day-by-day-content" class="main-container day-by-day__content ">
                     <ul id="day-by-day-list" class="day-by-day__list">
                         
                     </ul>
                 </div>
-            <!-- </div> -->
         </section>
-
         <section class="uv-sun__container">
             <div class="uv__container">
                 <div id="uv-average-title" class="header-container small uv-average__title">
                     <h3 class="color-grey">Indice UV</h3>
                 </div>
-                <!-- <div class="hide-container"> -->
                     <div id="uv-average-content" class="main-container small uv-average__content ">
                         <ul id="uv-average-list" class="uv-average__list">
                             
                         </ul>
                     </div>
-                <!-- </div> -->
             </div>
             <div class="sun__container">
                 <div id="sun-title" class="header-container small sun__title">
                     <h3 class="color-grey">Soleil</h3>
                 </div>
-                <!-- <div class="hide-container"> -->
                     <div id="sun-content" class="main-container small sun__content ">
                         <ul id="sun-list" class="sun__list">
                             
                         </ul>
                     </div>
-                <!-- </div> -->
             </div>
-       </section>
+        </section>
+        <section class="wind-rain__container">
+            <div class="wind__container">
+                <div id="wind-title" class="header-container small wind__title">
+                    <h3 class="color-grey">Vent</h3>
+                </div>
+                    <div id="wind-content" class="main-container small wind__content ">
+                        <ul id="wind-list" class="wind__list">
+                            
+                        </ul>
+                    </div>
+            </div>
+            <div class="rain__container">
+                <div id="rain-title" class="header-container small rain__title">
+                    <h3 class="color-grey">Chutes de pluie</h3>
+                </div>
+                    <div id="rain-content" class="main-container small rain__content ">
+                        <ul id="rain-list" class="rain__list">
+                            
+                        </ul>
+                    </div>
+            </div>
+        </section>
     </main>
+    
+    
+    
+    
     <footer>
         <div id="footer__container" class="footer__container">
             <div id="burger-button" class="burger__container">
@@ -112,14 +134,21 @@
                 <input id="search-input" class="search-input" type="text" list="city-list" name="city"
                     placeholder="la ville de votre choix" required>
                 <datalist id="city-list">
-
+ 
 
 
                 </datalist>
                 <button class="btn-glass" type="submit"><img
                         src="./assets/medias/svg/magnyfying-glass-location.svg"></button>
             </form>
+            <div id="favorites__container" class="favorites__container">
+                <div class="favorite-text tx-withe hidden">
+                    <p>Mes Favoris</p>
+                </div>
+            </div>
+            <div id="favorite__list" class="favorite__list"></div>
         </div>
+
     </footer>
 
 
@@ -170,9 +199,21 @@
     </template>
 
 
+    <template id="favorite-template">
+        <ul id="favorite-ul" class="favorite-ul">
+            <li id="favorite-li" class="favorite-li">
+                <img src="./assets/medias/svg/star-solid.svg" alt="favorite">
+                <p id="favorite-city-country" class="text-city-country"></p>
+
+            </li>
+        </ul>
+    </template>
+
     <script src="./assets/script/functions/get-datas.js"></script>
     <script src="./assets/script/functions/navigation.js"></script>
     <script src="./assets/script/functions/display.js"></script>
+    <script src="./assets/script/functions/favorites.js"></script>
+
     <script src="./assets/script/script.js"></script>
 </body>
 

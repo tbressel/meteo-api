@@ -1,12 +1,23 @@
 :root {
     --black00: #000000;
     --black00-alpha: #00000044;
+    --black00-beta: #0000007e;
     --whiteFF: #FFFFFF;
     --grey95:#9f9f9f;
     --greyBF:#858585;
     --aquablue: #3ae1ea;
-    --aquablue-alpha: #3ae1ea70;
+    --aquablue-alpha: #3ae1eac4;
     --aquablue-alpha2: #3ae1ea2e;
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--blue);
+        border-radius: 5px;
+    }
+
 
 }
 @font-face {

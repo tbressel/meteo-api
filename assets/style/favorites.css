@@ -1,0 +1,51 @@
+.favorite-text {
+    margin-top: 30px;
+    background-color: var(--black00);
+    width: 100vw;
+    padding: 10px 0 10px 30px;
+    border-radius: 10px 10px 0 0;
+}
+.favorite-text p {
+    color: var(--grey95);
+}
+
+.favorite__list {
+    background-color: var(--black00-beta);
+    width: 100%;
+
+}
+
+.favorite-img {
+    width: 20px;
+    height: 20px;
+}
+
+.text-city-country {
+    padding-top: 5px;
+    color: var(--whiteFF);
+}
+
+.favorite-ul {
+    width: 100%;
+}
+
+.favorite-li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+    .favorite-star img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .favorite-li img{
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+

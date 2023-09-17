@@ -1,0 +1,34 @@
+.rain__container {
+ width: fit-content;
+}
+
+
+.rain__list {
+    position: relative;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.rain-li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    font-size: 16px;
+}
+.rain {
+    font-size: 38px;
+}
+.rain-direction,
+.rain-description,
+.rain {
+    width: 100%;
+}
+
+.rain-state {
+    text-transform: capitalize;
+    font-size: 22px;
+}
+

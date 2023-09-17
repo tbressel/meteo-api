@@ -3,14 +3,3 @@ meter::-webkit-meter-bar {
     background-image: linear-gradient(to left, rgba(238, 130, 238), rgba(255, 0, 0), rgba(255, 255, 0), rgba(0, 128, 0));
   }
 
-  /* Pour la couleur de la valeur (texte) en blanc dans les deux navigateurs */
-  meter::-webkit-meter-optimum-value {
-      background-color: rgba(0, 0, 0, 0);
-      border-right: 8px solid rgb(3, 36, 39);  
-  }
-  
-  meter::-moz-meter-bar {
-    background-color: white; /* Fond blanc pour la valeur */
-  
-  }
-  

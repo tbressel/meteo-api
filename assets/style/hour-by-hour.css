@@ -6,6 +6,7 @@
     flex-direction: row;
     justify-content: space-between;
     overflow: scroll;
+    overflow-y: hidden;
 }
 .hour-li {
     text-align: center;

@@ -29,8 +29,8 @@ const uvStates = [
     ] 
 
 
-console.log('Tableau pour le fond ',background)
-console.log('heur locale actuelle',hour,'h')
+// console.log('Tableau pour le fond ',background)
+// console.log('heur locale actuelle',hour,'h')
 
 if (hour >= 23 || hour <= 4) {
     document.querySelector("body").className = "night";
@@ -40,6 +40,9 @@ if (hour >= 23 || hour <= 4) {
     document.querySelector("body").className = "light_clouds";
 }
 
+createFavoritesList();
+// get user favorites from the local storage
+localStorage.setItem("favorites", JSON.stringify(favorites));
 
 
 
@@ -119,10 +122,9 @@ document.getElementById("search-input").addEventListener('input', (event) => {
 
     // get back the list from local storage and return an array
     autocompletList = getList()
-    console.log("Tableau de la liste des choix possible ",autocompletList);
+    // console.log("Tableau de la liste des choix possible ",autocompletList);
 
     // show autocomplet list array in DOM option tag 
     displayListInField(autocompletList);
 })
-
 

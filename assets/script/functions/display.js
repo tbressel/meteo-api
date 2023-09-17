@@ -3,37 +3,35 @@ function displayCurrentWeather(jsondatas) {
     if(jsondatas.location.name === undefined) {
         return
     }
-
+    // console.log(jsondatas)
     const cityName = jsondatas.location.name;
 
     const countryName = jsondatas.location.country;
     document.getElementById("town").firstElementChild.textContent = `${cityName}`;
     document.getElementById("town").lastElementChild.textContent = `(${countryName})`;
 
-
-    
     const currentTemp = jsondatas.current.temp_c;
     document.getElementById("temp").lastElementChild.textContent = `${currentTemp}°C`;
     
     const condition = jsondatas.current.condition.text;
     document.getElementById("condition").lastElementChild.textContent = condition;
     
-    const wind = jsondatas.current.wind_kph;
-    document.getElementById("wind").firstElementChild.textContent = `vent : ${wind} km/h`;
-    
-    const humidity = jsondatas.current.humidity;
-    document.getElementById("humidity").lastElementChild.textContent = `humidité : ${humidity} %`;
+    const feel = jsondatas.current.feelslike_c;
+    document.getElementById("feelslike").firstElementChild.textContent = `ressentit : ${feel} °C`;
+
+
+
 }
 // Display forecaste hour by hour
 function displayForecastHourByHour (array) {
     const hourByHourNode = document.getElementById('hour-by-hour-list');
     hourByHourNode.innerHTML = "";
 
-    console.log('Tableau des prévision heure par heure : ', array);
+    // console.log('Tableau des prévision heure par heure : ', array);
    
     // create an array which contains only hours and get index
     const index = getIndexWhereSameHours(array)
-    console.log("Key du tableau qui compare l'heure local avec l'heur du tableau", index)
+    // console.log("Key du tableau qui compare l'heure local avec l'heur du tableau", index)
 
 
     for (let i = index; i < array.length ; i++) {
@@ -54,7 +52,7 @@ function displayForecastDayByDay(days) {
     const templateNode = document.getElementById("day-li-template");
     dayByDayNode.innerHTML = "";
 
-    console.log ('Tableau des prévision sur 14 jours : ',days)
+    // console.log ('Tableau des prévision sur 14 jours : ',days)
 
     for (const day of days) {
         const templateClone = document.importNode(templateNode.content, true);
@@ -92,3 +90,7 @@ function displayUvAverage(object) {
     templateClone.querySelector('meter').setAttribute("value", object.uvAverage);
     uvNode.appendChild(templateClone);
 }
+
+
+
+
