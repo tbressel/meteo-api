@@ -24,6 +24,7 @@ async function getWeatherInformations (method, town, apikey, lang, forecastday) 
 
     // get my Json from local storage
     weather = JSON.parse(localStorage.getItem("Json"));
+    console.log('Météo avec la méthode par defaut:', weather)
 
     // Display current weather with default location
     displayCurrentWeather(weather);
@@ -48,10 +49,22 @@ function getCityName () {
     const form = document.getElementById("search-form");
     const inputElement = document.getElementById("search-input");
     form.addEventListener("submit", function(event) {
+
+        // don't want default use of the button
         event.preventDefault();
+
+        // close burger menu
         setBurgerMenu(false);
+
+        // scroll to the top of the window
         getScrollToTheTop();
+
+        // get weather information
         getWeatherInformations (defaultMethod,`${inputElement.value}`, apiKey, defaultLanguage,forcastDays);
+
+        // cleaning the input field
+        cleanInputSearchField();
+
     });
 }
 
@@ -86,18 +99,15 @@ function getForecastDayByDay(array) {
 }
 
 // function to get IP from actual location usin ip.json method
-// async function getLocalisationCitybyIP (method, apikey) {
-//     const urlApi = `http://api.weatherapi.com/v1${method}?key=${apikey}&q=auto:ip`;
-
-//     // execution of async function
-//     await fetchWeatherDatas("IP", urlApi);
-
-//     // get my Json from local storage
-//     ipLocation = JSON.parse(localStorage.getItem("IP"));
-//     console.log(ipLocation)
-
-//     return ipLocation.city;
-// }
+async function getLocalisationCitybyIP (method, apikey) {
+    const urlApi = `http://api.weatherapi.com/v1${method}?key=${apikey}&q=auto:ip`;
+    // execution of async function
+    await fetchWeatherDatas("IP", urlApi);
+    // get my Json from local storage
+    ipLocation = JSON.parse(localStorage.getItem("IP"));
+    console.log(ipLocation)
+    return [ipLocation.city,ipLocation.country_name];
+}
 
 
 // function to get IP from actual location usin ip.json method
@@ -129,9 +139,31 @@ async function getLocalisationCitybyCoords (method, apikey) {
 //   }
 //   getClientIp();
 
+function cleanInputSearchField() {
+    document.getElementById("search-input").value="";
+}
+
+function getIndexWhereSameHours(array) {
+    // new array to get only hours from array
+    let newArray = [];
+    const fullDate = new Date();
+    
+    array.forEach(object => {
+        // split hours from date then split hours from minutes
+        newArray.push(object.time.split(' ')[1].split(':')[0]);
+    })
 
 
-  
+    let localHour = fullDate.getHours();
+    localHour <= 9 ? localHour = "0"+fullDate.getHours() : localHour = fullDate.getHours();
+    
+    for (const i of newArray) {
+        if (i === localHour) {
+            const index = newArray.indexOf(i);
+            return index;
+        }
+    }
+}
 
 
 

@@ -22,6 +22,13 @@
     width: 15%;
 }
 
+.mintemp {
+    color: var(--greyBF);
+}
+.day  {
+    text-transform: capitalize;
+    font-size: 12px;
+}
 .uv {
     width: 35%
 }
@@ -36,7 +43,7 @@ meter {
     width: 40px;
     height: 40px;
 }
-.day-by-day-li .humidity,
-.day {
-   font-size: 10px;
+.day-by-day-li .humidity {
+   font-size: 12px;
+   color: var(--aquablue);
 }
