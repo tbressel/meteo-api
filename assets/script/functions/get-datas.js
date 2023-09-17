@@ -71,19 +71,6 @@ async function getCityCountryList(method, town, apikey) {
 }
 
 
-// Get ip.json from API
-async function getLocalisationCitybyCoords (method, apikey) {
-    const urlApi = `http://api.weatherapi.com/v1${method}?key=${apikey}&q=auto:ip`;
-
-    // execution of async function
-    await fetchWeatherDatas("IP", urlApi);
-
-    // get my Json from local storage
-    ipLocation = JSON.parse(localStorage.getItem("IP"));
-    // console.log(ipLocation)
-
-    return ipLocation.city;
-}
 
 
 
@@ -151,22 +138,6 @@ async function getLocalisationCitybyIP (method, apikey) {
     return [ipLocation.city,ipLocation.country_name];
 }
 
-
-
-// -----------------------------------
-// ------  IP coté FAI ------------
-// -----------------------------------
-// async function getClientIp() {
-//     await fetch('http://ip-api.com/json/')
-//       .then(response => response.json())
-//       .then(data => {
-//         console.log('Adresse IP :', data);
-//       })
-//       .catch(error => {
-//         console.error('Erreur lors de la récupération de l\'adresse IP :', error);
-//       });
-//   }
-//   getClientIp();
 
 
 

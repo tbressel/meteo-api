@@ -66,7 +66,7 @@ if ("geolocation" in navigator) {
         }
     });
 } else {
-    // if not available
+ // if not available
     reject("La géolocalisation n'est pas disponible dans ce navigateur.");
     getLocalisationCitybyIP(IPLocationMethod, apiKey).then(data => {
         // if all is ok just copy data into global weather
@@ -74,10 +74,28 @@ if ("geolocation" in navigator) {
         displayLocalWeatherByIP(LocationByIp)
     })
 }
-
-
 // get coords back to the local storage
-coords = localStorage.getItem("coords")
+ coords = localStorage.getItem("coords")
+
+// ------------------------------------------------------------------------
+// Uncomment this to check API connexion by their own service of IP catching
+// Other alternative : using the auto IP of the API
+// coords =  getLocalisationCitybyCoords (IPLocationMethod,apiKey);
+// ------------------------------------------------------------------------
+
+// Another methode with an external API service
+// getClientIp()
+//   .then(coords => {
+//     // fist display of meteo location 
+//     getWeatherInformations(defaultMethod, coords, apiKey, defaultLanguage, forcastDays)
+//     .then(data => {
+//     // if all is ok just copy data into global weather
+//     weather = data;
+// })
+//   })
+//   .catch(error => {
+//     console.error('çà ne fonctionne pas', error);
+//   });
 
 // fist display of meteo location 
 getWeatherInformations(defaultMethod, coords, apiKey, defaultLanguage, forcastDays).then(data => {
