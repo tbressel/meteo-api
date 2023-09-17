@@ -15,7 +15,7 @@ async function fetchWeatherDatas(storageName, url) {
 }
 
 
-// Get json data from api
+// Get forecast.json data from API
 async function getWeatherInformations (method, town, apikey, lang, forecastday) {
     const urlApi = `http://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}&lang=${lang}&days=${forecastday}`;
 
@@ -43,6 +43,31 @@ async function getWeatherInformations (method, town, apikey, lang, forecastday) 
 
     return weather;
 }
+
+// Get search.json from API
+async function getCityCountryList(method, town, apikey) {
+    const urlApi = `http://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}`;
+
+    // execution of async function
+    await fetchWeatherDatas("autocomplet", urlApi);
+}
+
+
+// Get ip.json from API
+async function getLocalisationCitybyCoords (method, apikey) {
+    const urlApi = `http://api.weatherapi.com/v1${method}?key=${apikey}&q=auto:ip`;
+
+    // execution of async function
+    await fetchWeatherDatas("IP", urlApi);
+
+    // get my Json from local storage
+    ipLocation = JSON.parse(localStorage.getItem("IP"));
+    console.log(ipLocation)
+
+    return ipLocation.city;
+}
+
+
 
 // Get city name entered by the use from the input field
 function getCityName () {
@@ -83,7 +108,6 @@ function getForecastDayByDay(array) {
         const condition = element.day.condition.icon;
         const humidity = element.day.avghumidity;
 
-
         // Get the whole date en english format
         let fullDateEn = new Date(date);
 
@@ -110,19 +134,6 @@ async function getLocalisationCitybyIP (method, apikey) {
 }
 
 
-// function to get IP from actual location usin ip.json method
-async function getLocalisationCitybyCoords (method, apikey) {
-    const urlApi = `http://api.weatherapi.com/v1${method}?key=${apikey}&q=auto:ip`;
-
-    // execution of async function
-    await fetchWeatherDatas("IP", urlApi);
-
-    // get my Json from local storage
-    ipLocation = JSON.parse(localStorage.getItem("IP"));
-    console.log(ipLocation)
-
-    return ipLocation.city;
-}
 
 // -----------------------------------
 // ------  IP coté FAI ------------
@@ -138,6 +149,34 @@ async function getLocalisationCitybyCoords (method, apikey) {
 //       });
 //   }
 //   getClientIp();
+
+
+
+function getList() {
+    let autocompletList = [];
+
+    // get the local storage array
+    const arrayList = JSON.parse(localStorage.getItem("autocomplet"));
+    arrayList.forEach(element => {
+        autocompletList.push(`${element.name}, ${element.country}`);
+    })
+    return autocompletList;
+}
+
+
+// display getList() result in option field
+function displayListInField(array) {
+    const optionNode = document.getElementById('city-list');
+   
+
+    array.forEach(element => {
+        const optionElement = document.createElement("option");
+        optionElement.setAttribute("value", element)
+        optionElement.textContent = element;
+        optionNode.appendChild(optionElement)
+    })
+}
+
 
 function cleanInputSearchField() {
     document.getElementById("search-input").value="";
@@ -157,8 +196,10 @@ function getIndexWhereSameHours(array) {
     let localHour = fullDate.getHours();
     localHour <= 9 ? localHour = "0"+fullDate.getHours() : localHour = fullDate.getHours();
     
+
+    // be carefull : i (string) and localhour (number)
     for (const i of newArray) {
-        if (i === localHour) {
+        if (i == localHour) {
             const index = newArray.indexOf(i);
             return index;
         }

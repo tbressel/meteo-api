@@ -56,7 +56,6 @@ if ("geolocation" in navigator) {
         LocationByIp = data;
         displayLocalWeatherByIP(LocationByIp)
     })
-
 }
 
 
@@ -68,14 +67,6 @@ getWeatherInformations(defaultMethod, coords, apiKey, defaultLanguage, forcastDa
     // if all is ok just copy data into global weather
     weather = data;
 })
-
-
-
-//  getWeatherInformations(defaultMethod, defaultTown, apiKey, defaultLanguage, forcastDays).then(data => {
-//      // if all is ok just copy data into global weather
-//      weather = data;
-//  })
-
 
 
 // Listening to the burger button and toggle 
@@ -97,42 +88,27 @@ document.addEventListener('scroll', () => {
 
 
 
-
-
+// Listening on the input field and catch user value entries to send API search autocomplet
 document.getElementById("search-input").addEventListener('input', (event) => {
+
+    // delete previous option tag in DOM
+     document.getElementById('city-list').innerHTML = "";
+    let autocompletList = [];
+
+    // each enter in search fiald go into searchText
     let searchText = event.target.value;
+    
+    // send the contain of searchText
+    // fetch the URL and create de Local Storage
     getCityCountryList(searchMethod, searchText, apiKey);
-    const autocompletList = getList()
+
+
+    // get back the list from local storage and return an array
+    autocompletList = getList()
+    console.log("Tableau de la liste des choix possible ",autocompletList);
+
+    // show autocomplet list array in DOM option tag 
     displayListInField(autocompletList);
 })
 
-// Get json data from api
-async function getCityCountryList(method, town, apikey) {
-    const urlApi = `http://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}`;
 
-    // execution of async function
-    await fetchWeatherDatas("autocomplet", urlApi);
-}
-
-function getList() {
-    let autocompletList = [];
-    const arrayList = JSON.parse(localStorage.getItem("autocomplet"));
-    arrayList.forEach(element => {
-        autocompletList.push(`${element.name}, ${element.country}`);
-    })
-    console.log(autocompletList)
-    return autocompletList;
-}
-
-function displayListInField(array) {
-    console.table(array)
-    const optionNode = document.getElementById('city-list');
-    optionNode.innerHTML = "";
-
-    array.forEach(element => {
-        const optionElement = document.createElement("option");
-        optionElement.setAttribute("value", element)
-        optionElement.textContent = element;
-        optionNode.appendChild(optionElement)
-    })
-}

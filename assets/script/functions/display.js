@@ -33,7 +33,8 @@ function displayForecastHourByHour (array) {
    
     // create an array which contains only hours and get index
     const index = getIndexWhereSameHours(array)
-    // console.log(index)
+    console.log("Key du tableau qui compare l'heure local avec l'heur du tableau", index)
+
 
     for (let i = index; i < array.length ; i++) {
         const h = array[i];
