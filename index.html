@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="./assets/style/hour-by-hour.css">
     <link rel="stylesheet" href="./assets/style/day-by-day.css">
+    <link rel="stylesheet" href="./assets/style/air-quality.css">
     <link rel="stylesheet" href="./assets/style/footer-nav.css">
 </head>
 
@@ -87,14 +88,94 @@
 </template>
 
 
-    <!-- <div id="air-quality-title" class="header-container air-quality__title">
-        <h3 class="color-grey">Prévisions heure par heure</h3>
-    </div>
+
+
+<div id="air-quality-title" class="header-container air-quality__title">
+    <h3 class="color-grey">Qualité de l'air</h3>
+</div>
+<div class="hide-container">
     <div id="air-quality-content" class="main-container air-quality__content ">
-        <p class="color-grey">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi quos labore 
-        </p>
-    </div> -->
+        <ul id="air-quality-list" class="air-quality__list">
+            <li class="color-grey">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores unde harum deserunt minus voluptatum rerum sunt iusto, et nisi, accusantium mollitia provident tempore voluptas. Sit architecto minus aperiam labore.
+
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="uv-lever">
+    <div class="container">
+    <div id="uv-indice-title" class="header-container small-container uv-indice__title">
+        <h3 class="color-grey">Indice uv</h3>
+    </div>
+        <div id="uv-indice-content" class="main-container small-container uv-indice__content ">
+            <ul id="uv-indice-list" class="uv-indice__list">
+                <li class="color-grey">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores unde harum deserunt minus voluptatum rerum sunt iusto, et nisi, accusantium mollitia provident tempore voluptas. Sit architecto minus aperiam labore.
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="container">
+    <div id="sunset-title" class="header-container small-container sunset__title">
+        <h3 class="color-grey">Lever</h3>
+    </div>
+        <div id="sunset-content" class="main-container small-container sunset__content ">
+            <ul id="sunset-list" class="sunset__list">
+                <li class="color-grey">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores unde harum deserunt minus voluptatum rerum sunt iusto, et nisi, accusantium mollitia provident tempore voluptas. Sit architecto minus aperiam labore.
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
+    
+
+
+
+
+
+
+
+
+
+<div class="wind-rain">
+    <div class="container">
+    <div id="uv-indice-title" class="header-container small-container uv-indice__title">
+        <h3 class="color-grey">Vent</h3>
+    </div>
+        <div id="uv-indice-content" class="main-container small-container uv-indice__content ">
+            <ul id="uv-indice-list" class="uv-indice__list">
+                <li class="color-grey">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores unde harum deserunt minus voluptatum rerum sunt iusto, et nisi, accusantium mollitia provident tempore voluptas. Sit architecto minus aperiam labore.
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="container">
+    <div id="sunset-title" class="header-container small-container sunset__title">
+        <h3 class="color-grey">Chute de pluie</h3>
+    </div>
+        <div id="sunset-content" class="main-container small-container sunset__content ">
+            <ul id="sunset-list" class="sunset__list">
+                <li class="color-grey">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores unde harum deserunt minus voluptatum rerum sunt iusto, et nisi, accusantium mollitia provident tempore voluptas. Sit architecto minus aperiam labore.
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
+
    
 </main>
 
@@ -112,7 +193,11 @@
             <form  id="search-form" class="search-form">
                 <label for="search-input"></label>
                 <input  id="search-input" class="search-input" type="text" list="city-list" name="city" placeholder="la ville de votre choix" required>
-                <!-- <datalist id="city-list"></datalist> -->
+                <datalist id="city-list">
+                    
+
+
+                </datalist>
                 <button class="btn-glass" type="submit"><img src="./assets/medias/svg/magnyfying-glass-location.svg"></button>
             </form>           
         </div>

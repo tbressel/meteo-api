@@ -3,16 +3,17 @@ const apiKey = "747688c35ef841a3bba95053231109";
 let defaultTown = '';
 const defaultMethod = '/forecast.json';
 const IPLocationMethod = '/ip.json';
+const searchMethod = '/search.json;'
 const defaultLanguage = 'fr';
 const forcastDays = 14;
 let date = new Date();
 let hour = date.getHours()
 let weather = [];
-let LocationByIp = '' ;
+let LocationByIp = '';
 let background = {
     nuit: './medias/img/GrandeOurse.jpg',
-    nuages_sombre: './medias/img/clouds2.jpg', 
-    nuages_clair: './medias/img/clouds.jpg', 
+    nuages_sombre: './medias/img/clouds2.jpg',
+    nuages_clair: './medias/img/clouds.jpg',
 }
 console.log(background)
 console.log(hour)
@@ -39,7 +40,7 @@ if ("geolocation" in navigator) {
         // save actual GPS coords
         localStorage.setItem("coords", coords)
 
-        if (coords === "" ) {
+        if (coords === "") {
             getLocalisationCitybyIP(IPLocationMethod, apiKey).then(data => {
                 // if all is ok just copy data into global weather
                 LocationByIp = data;
@@ -55,7 +56,7 @@ if ("geolocation" in navigator) {
         LocationByIp = data;
         displayLocalWeatherByIP(LocationByIp)
     })
-    
+
 }
 
 
@@ -89,10 +90,49 @@ document.addEventListener('scroll', () => {
     const scrollTop = document.documentElement.scrollTop;
     document.querySelectorAll(".header-container").forEach(element => {
         // when the offsetTop of each element <= scroll top value then set the class sticky
-        scrollTop >= element.offsetTop ? element.classList.add("sticky") : element.classList.remove("sticky");    });
+        // console.log(element)
+        scrollTop >= element.offsetTop ? element.classList.add("sticky") : element.classList.remove("sticky");
+    });
 });
 
 
 
 
 
+document.getElementById("search-input").addEventListener('input', (event) => {
+    let searchText = event.target.value;
+    getCityCountryList(searchMethod, searchText, apiKey);
+    const autocompletList = getList()
+    displayListInField(autocompletList);
+})
+
+// Get json data from api
+async function getCityCountryList(method, town, apikey) {
+    const urlApi = `http://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}`;
+
+    // execution of async function
+    await fetchWeatherDatas("autocomplet", urlApi);
+}
+
+function getList() {
+    let autocompletList = [];
+    const arrayList = JSON.parse(localStorage.getItem("autocomplet"));
+    arrayList.forEach(element => {
+        autocompletList.push(`${element.name}, ${element.country}`);
+    })
+    console.log(autocompletList)
+    return autocompletList;
+}
+
+function displayListInField(array) {
+    console.table(array)
+    const optionNode = document.getElementById('city-list');
+    optionNode.innerHTML = "";
+
+    array.forEach(element => {
+        const optionElement = document.createElement("option");
+        optionElement.setAttribute("value", element)
+        optionElement.textContent = element;
+        optionNode.appendChild(optionElement)
+    })
+}

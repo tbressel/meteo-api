@@ -1,6 +1,11 @@
 // Display information in header
 function displayCurrentWeather(jsondatas) {
+    if(jsondatas.location.name === undefined) {
+        return
+    }
+
     const cityName = jsondatas.location.name;
+
     const countryName = jsondatas.location.country;
     document.getElementById("town").firstElementChild.textContent = `${cityName}`;
     document.getElementById("town").lastElementChild.textContent = `(${countryName})`;
