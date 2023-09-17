@@ -17,7 +17,7 @@ async function fetchWeatherDatas(storageName, url) {
 
 // Get forecast.json data from API
 async function getWeatherInformations (method, town, apikey, lang, forecastday) {
-    const urlApi = `http://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}&lang=${lang}&days=${forecastday}`;
+    const urlApi = `https://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}&lang=${lang}&days=${forecastday}`;
 
     // execution of async function
     await fetchWeatherDatas("Json",urlApi);
@@ -64,7 +64,7 @@ async function getWeatherInformations (method, town, apikey, lang, forecastday) 
 
 // Get search.json from API
 async function getCityCountryList(method, town, apikey) {
-    const urlApi = `http://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}`;
+    const urlApi = `https://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}`;
 
     // execution of async function
     await fetchWeatherDatas("autocomplet", urlApi);
@@ -129,7 +129,7 @@ function getForecastDayByDay(array) {
 
 // function to get IP from actual location usin ip.json method
 async function getLocalisationCitybyIP(method, apikey) {
-    const urlApi = `http://api.weatherapi.com/v1${method}?key=${apikey}&q=auto:ip`;
+    const urlApi = `https://api.weatherapi.com/v1${method}?key=${apikey}&q=auto:ip`;
     
     // Exécution de la fonction asynchrone
     await fetchWeatherDatas("IP", urlApi);
