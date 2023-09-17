@@ -16,6 +16,9 @@
     ::-webkit-scrollbar-thumb {
         background-color: var(--blue);
         border-radius: 5px;
+
+        max-width: 600px;
+    min-width: 320px;
     }
 
 
@@ -30,9 +33,11 @@ html {
     font-weight: 400;
 }
 main {
-    padding-bottom: 1000px;
+    
+    padding-bottom: 800px;
 }
  body {
+    
     height: 100vh;
     background: fixed;
     background-image: url(../medias/img/GrandeOurse.jpg);

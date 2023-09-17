@@ -138,5 +138,14 @@ document.getElementById("favorite__list").addEventListener('click', (event) => {
     } else {
         const newRequestLocation = event.target.textContent;
         getWeatherInformations(defaultMethod, newRequestLocation, apiKey, defaultLanguage, forcastDays);
+                // close burger menu
+                setBurgerMenu(false);
+
+                // scroll to the top of the window
+                getScrollToTheTop();
+    
+    
+    
+    
     }
 })
