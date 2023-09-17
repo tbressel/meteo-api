@@ -128,14 +128,16 @@ function getForecastDayByDay(array) {
 }
 
 // function to get IP from actual location usin ip.json method
-async function getLocalisationCitybyIP (method, apikey) {
+async function getLocalisationCitybyIP(method, apikey) {
     const urlApi = `http://api.weatherapi.com/v1${method}?key=${apikey}&q=auto:ip`;
-    // execution of async function
+    
+    // Exécution de la fonction asynchrone
     await fetchWeatherDatas("IP", urlApi);
-    // get my Json from local storage
-    ipLocation = JSON.parse(localStorage.getItem("IP"));
-    // console.log(ipLocation)
-    return [ipLocation.city,ipLocation.country_name];
+    let ipLocation = JSON.parse(localStorage.getItem("IP"));
+
+    
+    // Une fois que ipLocation est défini, vous pouvez le retourner.
+    return [ipLocation.city, ipLocation.country_name];
 }
 
 
