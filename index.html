@@ -15,11 +15,12 @@
     <link rel="stylesheet" href="./assets/style/hour-by-hour.css">
     <link rel="stylesheet" href="./assets/style/day-by-day.css">
     <link rel="stylesheet" href="./assets/style/uv-average.css">
+    <link rel="stylesheet" href="./assets/style/sun.css">
     <link rel="stylesheet" href="./assets/style/footer-nav.css">
 </head>
 
 <body>
-    <header class="header">
+    <header class="header header__container">
         <div id="town" class="town">
             <h2 class="color-white"></h2>
             <h3 class="color-white"></h3>
@@ -41,121 +42,133 @@
         </div>
     </header>
 
-<main>
+    <main class="main__container">
 
 
-    
-    <div id="hour-by-hour-title" class="header-container hour-by-hour__title">
-        <h3 class="color-grey">Prévisions heure par heure</h3>
-    </div>
-    <div class="hide-container">
-        <div id="hour-by-hour-content" class="main-container hour-by-hour__content ">
-            <ul id="hour-by-hour-list" class="hour-by-hour__list">
-            </ul>
-        </div>
-    </div>
-    
-<template id="hour-li-template">
-    <li class="hour-li">
-        <p  class="hour color-white"></p>
-        <img class="image-weather" src="" alt="image">
-        <p class="temp color-white"></p>
-    </li>
-</template>
-
-<div id="day-by-day-title" class="header-container day-by-day__title">
-    <h3 class="color-grey">Prévisions sur 14 jours</h3>
-</div>
-<div class="hide-container">
-    <div id="day-by-day-content" class="main-container day-by-day__content ">
-        <ul id="day-by-day-list" class="day-by-day__list">
-            
-        </ul>
-    </div>
-</div>
-
-<template id="day-li-template">
-    <li class="day-by-day-li">
-        <p class="day color-white"></p>
-        <div class="image-day">
-            <img class="image-weather" src="" alt="image">
-            <p class="humidity color-white"></p>
-        </div>
-        <p id="mintemp" class="mintemp color-white"></p>
-        <p id="uv" class="uv">
-            <meter value="" min="0" max="16"></meter></p>
-        <p id="maxtemp" class="maxtemp color-white"></p>
-    </li>
-</template>
+        <section class="hour__container">
+            <div id="hour-by-hour-title" class="header-container hour-by-hour__title">
+                <h3 class="color-grey">Prévisions heure par heure</h3>
+            </div>
+            <!-- <div class="hide-container"> -->
+                <div id="hour-by-hour-content" class="main-container hour-by-hour__content ">
+                    <ul id="hour-by-hour-list" class="hour-by-hour__list">
+                    </ul>
+                </div>
+            <!-- </div> -->
+        </section>
 
 
+        <section class="day__container">
+            <div id="day-by-day-title" class="header-container day-by-day__title">
+                <h3 class="color-grey">Prévisions sur 14 jours</h3>
+            </div>
+            <!-- <div class="hide-container"> -->
+                <div id="day-by-day-content" class="main-container day-by-day__content ">
+                    <ul id="day-by-day-list" class="day-by-day__list">
+                        
+                    </ul>
+                </div>
+            <!-- </div> -->
+        </section>
 
-
-<div id="uv-average-title" class="header-container uv-average__title">
-    <h3 class="color-grey">Indice UV</h3>
-</div>
-<div class="hide-container">
-    <div id="uv-average-content" class="main-container uv-average__content ">
-        <ul id="uv-average-list" class="uv-average__list">
-   
-        </ul>
-    </div>
-</div>
-
-
-<template id="uv-li-template">
-    <li class="uv-average-li">
-        <p class="uv-average color-white"></p>
-        <p class="uv-state color-white"></p>
-        <p id="uv" class="uv-bar">
-            <meter value="" min="0" max="16"></meter>
-        </p>
-        <p class="uv-description color-white"></p>
-    </li>
-</template>
-
-
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-   
-   
-</main>
-
-
-
+        <section class="uv-sun__container">
+            <div class="uv__container">
+                <div id="uv-average-title" class="header-container small uv-average__title">
+                    <h3 class="color-grey">Indice UV</h3>
+                </div>
+                <!-- <div class="hide-container"> -->
+                    <div id="uv-average-content" class="main-container small uv-average__content ">
+                        <ul id="uv-average-list" class="uv-average__list">
+                            
+                        </ul>
+                    </div>
+                <!-- </div> -->
+            </div>
+            <div class="sun__container">
+                <div id="sun-title" class="header-container small sun__title">
+                    <h3 class="color-grey">Soleil</h3>
+                </div>
+                <!-- <div class="hide-container"> -->
+                    <div id="sun-content" class="main-container small sun__content ">
+                        <ul id="sun-list" class="sun__list">
+                            
+                        </ul>
+                    </div>
+                <!-- </div> -->
+            </div>
+       </section>
+    </main>
     <footer>
         <div id="footer__container" class="footer__container">
-            <div  id="burger-button" class="burger__container">
+            <div id="burger-button" class="burger__container">
                 <div class="burger-icon">
                     <div></div>
                     <div></div>
                     <div></div>
                 </div>
             </div>
-            <form  id="search-form" class="search-form">
+            <form id="search-form" class="search-form">
                 <label for="search-input"></label>
-                <input  id="search-input" class="search-input" type="text" list="city-list" name="city" placeholder="la ville de votre choix" required>
+                <input id="search-input" class="search-input" type="text" list="city-list" name="city"
+                    placeholder="la ville de votre choix" required>
                 <datalist id="city-list">
-                    
+
 
 
                 </datalist>
-                <button class="btn-glass" type="submit"><img src="./assets/medias/svg/magnyfying-glass-location.svg"></button>
-            </form>           
+                <button class="btn-glass" type="submit"><img
+                        src="./assets/medias/svg/magnyfying-glass-location.svg"></button>
+            </form>
         </div>
     </footer>
+
+
+
+    <template id="hour-li-template">
+        <li class="hour-li">
+            <p class="hour color-white"></p>
+            <img class="image-weather" src="" alt="image">
+            <p class="temp color-white"></p>
+        </li>
+    </template>
+
+    <template id="day-li-template">
+        <li class="day-by-day-li">
+            <p class="day color-white"></p>
+            <div class="image-day">
+                <img class="image-weather" src="" alt="image">
+                <p class="humidity color-white"></p>
+            </div>
+            <p id="mintemp" class="mintemp color-white"></p>
+            <p id="uv" class="uv">
+                <meter value="" min="0" max="16"></meter>
+            </p>
+            <p id="maxtemp" class="maxtemp color-white"></p>
+        </li>
+    </template>
+
+    <template id="uv-li-template">
+        <li class="uv-average-li">
+            <p class="uv-average color-white"></p>
+            <p class="uv-state color-white"></p>
+            <p id="uv" class="uv-bar">
+                <meter value="" min="0" max="16"></meter>
+            </p>
+            <p class="uv-description color-white"></p>
+        </li>
+    </template>
+
+    <template id="uv-li-template">
+        <li class="uv-average-li">
+            <p class="uv-average color-white"></p>
+            <p class="uv-state color-white"></p>
+            <p id="uv" class="uv-bar">
+                <meter value="" min="0" max="16"></meter>
+            </p>
+            <p class="uv-description color-white"></p>
+        </li>
+    </template>
+
 
     <script src="./assets/script/functions/get-datas.js"></script>
     <script src="./assets/script/functions/navigation.js"></script>

@@ -1,13 +1,12 @@
-
+.hour-by-hour__title {
+    grid-area: hour;
+}
 .hour-by-hour__list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     overflow: scroll;
 }
-
-
-
 .hour-li {
     text-align: center;
     font-size: 16px;

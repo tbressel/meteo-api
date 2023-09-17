@@ -19,10 +19,10 @@ function displayCurrentWeather(jsondatas) {
     document.getElementById("condition").lastElementChild.textContent = condition;
     
     const wind = jsondatas.current.wind_kph;
-    document.getElementById("wind").firstElementChild.textContent = `${wind} km/h`;
+    document.getElementById("wind").firstElementChild.textContent = `vent : ${wind} km/h`;
     
     const humidity = jsondatas.current.humidity;
-    document.getElementById("humidity").lastElementChild.textContent = `${humidity} %`;
+    document.getElementById("humidity").lastElementChild.textContent = `humidité : ${humidity} %`;
 }
 // Display forecaste hour by hour
 function displayForecastHourByHour (array) {
@@ -84,6 +84,7 @@ function displayUvAverage(object) {
     const templateClone = document.importNode(templateNode, true).content;
     // console.log(templateClone);
     const uvNode = document.getElementById('uv-average-list');
+    uvNode.innerHTML="";
 
     templateClone.querySelector('.uv-average').textContent = object.uvAverage;
     templateClone.querySelector('.uv-state').textContent = object.uvState;

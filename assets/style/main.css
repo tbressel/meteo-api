@@ -1,3 +1,30 @@
+.main-container.small,
+.header-container.small {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--black00);
+}
+
+.header-container.small { 
+    height: 30px;
+    margin-top: 30px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.main-container.small {
+    height: fit-content;
+    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px ;
+    background-color: var(--black00-alpha);
+}
+
 .main-container,
 .header-container {
     display: flex;
@@ -12,6 +39,7 @@
     background-color: var(--black00);
 }
 .header-container {
+   
     height: 30px;
     margin-top: 30px;
     border-radius: 10px 10px 0px 0px;
@@ -29,9 +57,20 @@
     top: 0;
 }
 
-
+.hide__container {
+    max-width: 40%;
+    min-width: 40%;
+}
 
 .container {
     display: flex;
     flex-direction: column;
 }
+
+.uv-sun__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+

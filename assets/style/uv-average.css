@@ -1,10 +1,14 @@
+.uv__container {
+ width: fit-content;
+}
+
 
 .uv-average__list {
     position: relative;
     z-index: -1;
     display: flex;
     flex-direction: column;
-    /* width: 100%; */
+
 }
 
 .uv-average-li {
@@ -28,13 +32,9 @@
     font-size: 22px;
 }
 .uv-bar {
-   
     width: 100%
 }
 .uv-description {
     font-size: 12px;
 }
-.header-container.uv-average__title,
-.main-container.uv-average__content {
-    width: 35%;
-}
+ 
