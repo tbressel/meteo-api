@@ -15,8 +15,22 @@ let background = {
     nuages_sombre: './medias/img/clouds2.jpg',
     nuages_clair: './medias/img/clouds.jpg',
 }
-console.log(background)
-console.log(hour)
+const uvStates = [
+    {state: "Faible", advice: "Faible pour le reste de la journée."},
+    {state: "Faible", advice: "Faible pour le reste de la journée."},
+    {state: "Faible", advice: "Faible pour le reste de la journée."},
+    {state: "Modéré", advice: "Utilisez un écran solaire jusqu'à 17h00."},
+    {state: "Modéré", advice: "Utilisez un écran solaire jusqu'à 17h00."},
+    {state: "Elevé", advice: "Utilisez un écran solaire jusqu'à 18h00."},
+    {state: "Elevé", advice: "Utilisez un écran solaire jusqu'à 18h00."},
+    {state: "Très élevé", advice: "Utilisez un écran solaire jusqu'à 18h00."},
+    {state: "Très élevé", advice: "Utilisez un écran solaire jusqu'à 18h00."},
+     {state: "Très élevé", advice: "Utilisez un écran solaire jusqu'à 17h00."}
+    ] 
+
+
+console.log('Tableau pour le fond ',background)
+console.log('heur locale actuelle',hour,'h')
 
 if (hour >= 23 || hour <= 4) {
     document.querySelector("body").className = "night";

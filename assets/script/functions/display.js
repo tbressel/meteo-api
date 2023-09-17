@@ -78,3 +78,16 @@ function displayForecastDayByDay(days) {
 //         })
 // }
 
+// display UV average
+function displayUvAverage(object) {
+    const templateNode = document.getElementById('uv-li-template');
+    const templateClone = document.importNode(templateNode, true).content;
+    // console.log(templateClone);
+    const uvNode = document.getElementById('uv-average-list');
+
+    templateClone.querySelector('.uv-average').textContent = object.uvAverage;
+    templateClone.querySelector('.uv-state').textContent = object.uvState;
+    templateClone.querySelector('.uv-description').textContent = object.uvAdvice;
+    templateClone.querySelector('meter').setAttribute("value", object.uvAverage);
+    uvNode.appendChild(templateClone);
+}

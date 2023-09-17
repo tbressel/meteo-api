@@ -1,0 +1,40 @@
+
+.uv-average__list {
+    position: relative;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; */
+}
+
+.uv-average-li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    font-size: 16px;
+}
+.uv-average {
+    font-size: 38px;
+}
+.uv-state,
+.uv-description,
+.uv-average {
+    width: 100%;
+}
+
+.uv-state {
+    text-transform: capitalize;
+    font-size: 22px;
+}
+.uv-bar {
+   
+    width: 100%
+}
+.uv-description {
+    font-size: 12px;
+}
+.header-container.uv-average__title,
+.main-container.uv-average__content {
+    width: 35%;
+}

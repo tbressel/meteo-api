@@ -41,6 +41,14 @@ async function getWeatherInformations (method, town, apikey, lang, forecastday) 
     // display forecast day by day
       displayForecastDayByDay(forecastDay)
 
+
+    // get uv average informations
+    const UvAverage = getUvAverage(weather)
+    console.log(UvAverage);
+
+    // display uv average informations
+    displayUvAverage(UvAverage);
+
     return weather;
 }
 
@@ -62,7 +70,7 @@ async function getLocalisationCitybyCoords (method, apikey) {
 
     // get my Json from local storage
     ipLocation = JSON.parse(localStorage.getItem("IP"));
-    console.log(ipLocation)
+    // console.log(ipLocation)
 
     return ipLocation.city;
 }
@@ -167,7 +175,6 @@ function getList() {
 // display getList() result in option field
 function displayListInField(array) {
     const optionNode = document.getElementById('city-list');
-   
 
     array.forEach(element => {
         const optionElement = document.createElement("option");
@@ -207,5 +214,12 @@ function getIndexWhereSameHours(array) {
 }
 
 
+function getUvAverage(weather) {
+    console.log("Tableau des type d'indice", uvStates)
 
-  
+    const uvAverage = JSON.stringify(weather.current.uv);
+    const uvState = uvStates[uvAverage].state;
+    const uvAdvice = uvStates[uvAverage].advice;
+    return { uvAverage, uvState, uvAdvice }
+}
+

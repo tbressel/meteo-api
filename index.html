@@ -7,13 +7,14 @@
     <title>Météo iPhone</title>
 
     <link rel="stylesheet" href="./assets/style/reset.css">
+    <link rel="stylesheet" href="./assets/style/webkit.css">
     <link rel="stylesheet" href="./assets/style/global.css">
     <link rel="stylesheet" href="./assets/style/header.css">
     <link rel="stylesheet" href="./assets/style/main.css">
 
     <link rel="stylesheet" href="./assets/style/hour-by-hour.css">
     <link rel="stylesheet" href="./assets/style/day-by-day.css">
-    <link rel="stylesheet" href="./assets/style/air-quality.css">
+    <link rel="stylesheet" href="./assets/style/uv-average.css">
     <link rel="stylesheet" href="./assets/style/footer-nav.css">
 </head>
 
@@ -90,51 +91,32 @@
 
 
 
-<div id="air-quality-title" class="header-container air-quality__title">
-    <h3 class="color-grey">Qualité de l'air</h3>
+<div id="uv-average-title" class="header-container uv-average__title">
+    <h3 class="color-grey">Indice UV</h3>
 </div>
 <div class="hide-container">
-    <div id="air-quality-content" class="main-container air-quality__content ">
-        <ul id="air-quality-list" class="air-quality__list">
-            <li class="color-grey">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores unde harum deserunt minus voluptatum rerum sunt iusto, et nisi, accusantium mollitia provident tempore voluptas. Sit architecto minus aperiam labore.
-
-            </li>
+    <div id="uv-average-content" class="main-container uv-average__content ">
+        <ul id="uv-average-list" class="uv-average__list">
+   
         </ul>
     </div>
 </div>
 
 
-<div class="uv-lever">
-    <div class="container">
-    <div id="uv-indice-title" class="header-container small-container uv-indice__title">
-        <h3 class="color-grey">Indice uv</h3>
-    </div>
-        <div id="uv-indice-content" class="main-container small-container uv-indice__content ">
-            <ul id="uv-indice-list" class="uv-indice__list">
-                <li class="color-grey">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores unde harum deserunt minus voluptatum rerum sunt iusto, et nisi, accusantium mollitia provident tempore voluptas. Sit architecto minus aperiam labore.
-                    
-                </li>
-            </ul>
-        </div>
-    </div>
+<template id="uv-li-template">
+    <li class="uv-average-li">
+        <p class="uv-average color-white"></p>
+        <p class="uv-state color-white"></p>
+        <p id="uv" class="uv-bar">
+            <meter value="" min="0" max="16"></meter>
+        </p>
+        <p class="uv-description color-white"></p>
+    </li>
+</template>
+
+
     
-    <div class="container">
-    <div id="sunset-title" class="header-container small-container sunset__title">
-        <h3 class="color-grey">Lever</h3>
-    </div>
-        <div id="sunset-content" class="main-container small-container sunset__content ">
-            <ul id="sunset-list" class="sunset__list">
-                <li class="color-grey">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores unde harum deserunt minus voluptatum rerum sunt iusto, et nisi, accusantium mollitia provident tempore voluptas. Sit architecto minus aperiam labore.
-                    
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-</div>
+
     
 
 
@@ -145,37 +127,9 @@
 
 
 
-<div class="wind-rain">
-    <div class="container">
-    <div id="uv-indice-title" class="header-container small-container uv-indice__title">
-        <h3 class="color-grey">Vent</h3>
-    </div>
-        <div id="uv-indice-content" class="main-container small-container uv-indice__content ">
-            <ul id="uv-indice-list" class="uv-indice__list">
-                <li class="color-grey">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores unde harum deserunt minus voluptatum rerum sunt iusto, et nisi, accusantium mollitia provident tempore voluptas. Sit architecto minus aperiam labore.
-                    
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="container">
-    <div id="sunset-title" class="header-container small-container sunset__title">
-        <h3 class="color-grey">Chute de pluie</h3>
-    </div>
-        <div id="sunset-content" class="main-container small-container sunset__content ">
-            <ul id="sunset-list" class="sunset__list">
-                <li class="color-grey">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores unde harum deserunt minus voluptatum rerum sunt iusto, et nisi, accusantium mollitia provident tempore voluptas. Sit architecto minus aperiam labore.
-                    
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-</div>
 
+
+   
    
 </main>
 

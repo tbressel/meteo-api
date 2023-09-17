@@ -19,14 +19,3 @@
     flex-wrap: wrap;
 
 }
-
-.wind-humidity {
-    display: flex;
-    flex-direction: row;
-    font-size: 22px;
-}
-.wind,
-.humidity {
-    margin-left: 10px;
-    margin-right: 10px;
-}

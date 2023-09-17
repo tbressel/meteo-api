@@ -30,25 +30,6 @@
 }
 
 
-.uv-lever,
-.wind-rain {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.small-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    width: 40vw;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: var(--black00);
-}
 
 .container {
     display: flex;
