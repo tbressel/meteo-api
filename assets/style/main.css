@@ -19,7 +19,7 @@
 }
 
 .main-container.small {
-    height: fit-content;
+    height: 120px;
     border-radius: 10px;
     border-radius: 0px 0px 10px 10px ;
     background-color: var(--black00-alpha);
@@ -27,6 +27,8 @@
 
 .main-container,
 .header-container {
+    position: relative;
+    z-index: -1;
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -39,7 +41,7 @@
     background-color: var(--black00);
 }
 .header-container {
-   
+   z-index: 1;
     height: 30px;
     margin-top: 30px;
     border-radius: 10px 10px 0px 0px;

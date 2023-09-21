@@ -3,10 +3,11 @@
 } 
 .sun__list {
     position: relative;
-    z-index: -1;
     display: flex;
     flex-direction: column;
-    /* width: 100%; */
+    z-index: -1;
+    top: -77px;
+
 }
 
 .sun-li {
@@ -20,5 +21,61 @@
     font-size: 38px;
 }
 
+.main-container.small.sun__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sun-content__sunset {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.sun-content__sunrise {
+    text-align: right;
+    font-size: 16px;
+}
 
 
+#o-container {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #a5c819;
+    border-radius: 50%;
+}
+
+.sun-position {
+    position: relative;
+    z-index: -1;
+    font-size: 10px;
+}
+
+
+.sun-12 {
+    left: 65px;
+}
+.sun-16 {
+    left: 85px;
+    top: 1px;
+}
+.sun-20 {
+    left: 105px;
+    top:-3px;
+}
+.sun-23 {
+    left: 123px;
+}
+.sun-8 {
+    top: -28px;
+    left: 48px;
+}
+.sun-4 {
+    left: 28px;
+    top: -30px;
+}
+
+.sun-0 {
+    left: 9px;
+    top: -26px;
+}

@@ -84,13 +84,9 @@
             </div>
             <div class="sun__container">
                 <div id="sun-title" class="header-container small sun__title">
-                    <h3 class="color-grey">Soleil</h3>
+                    <h3 class="color-grey">Coucher</h3>
                 </div>
-                    <div id="sun-content" class="main-container small sun__content ">
-                        <ul id="sun-list" class="sun__list">
-                            
-                        </ul>
-                    </div>
+                    
             </div>
         </section>
         <section class="wind-rain__container">
@@ -187,14 +183,10 @@
         </li>
     </template>
 
-    <template id="uv-li-template">
-        <li class="uv-average-li">
-            <p class="uv-average color-white"></p>
-            <p class="uv-state color-white"></p>
-            <p id="uv" class="uv-bar">
-                <meter value="" min="0" max="16"></meter>
-            </p>
-            <p class="uv-description color-white"></p>
+    <template id="sun-li-template">
+        <li class="sun-li">
+            <p class="sun-rise color-white"></p>
+            <p class="sun-set color-white"></p>
         </li>
     </template>
 
@@ -217,6 +209,7 @@
     <script src="./assets/script/functions/favorites.js"></script>
 
     <script src="./assets/script/script.js"></script>
+    <script src="./assets/script/bezier.js"></script>
 </body>
 
 </html>

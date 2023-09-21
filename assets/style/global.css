@@ -1,6 +1,6 @@
 :root {
     --black00: #000000;
-    --black00-alpha: #00000044;
+    --black00-alpha: #000000ab;
     --black00-beta: #0000007e;
     --whiteFF: #FFFFFF;
     --grey95:#9f9f9f;
@@ -37,7 +37,7 @@ main {
     padding-bottom: 800px;
 }
  body {
-    
+
     height: 100vh;
     background: fixed;
     background-image: url(../medias/img/GrandeOurse.jpg);
