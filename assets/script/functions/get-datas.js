@@ -59,6 +59,9 @@ async function getWeatherInformations (method, town, apikey, lang, forecastday) 
     // display uv average informations
     displayUvAverage(UvAverage);
 
+    //display sunrise and sunset hours
+    displaySunriseAndSunsetHours(SunriseAndSunset)
+
     return weather;
 }
 
@@ -70,6 +73,15 @@ async function getCityCountryList(method, town, apikey) {
     await fetchWeatherDatas("autocomplet", urlApi);
 }
 
+
+// Get sun.json from API
+async function getSunriseAndSunsetHours(method, town, apikey) {
+    const urlApi = `https://api.weatherapi.com/v1${method}?q=${town}&aqi=yes&key=${apikey}`;
+
+    // execution of async function
+    const data = await fetchWeatherDatas("sun", urlApi);
+    return data;
+}
 
 
 

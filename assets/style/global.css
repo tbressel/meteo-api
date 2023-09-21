@@ -16,9 +16,8 @@
     ::-webkit-scrollbar-thumb {
         background-color: var(--blue);
         border-radius: 5px;
-
         max-width: 600px;
-    min-width: 320px;
+        min-width: 320px;
     }
 
 

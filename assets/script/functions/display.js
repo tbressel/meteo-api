@@ -66,15 +66,6 @@ function displayForecastDayByDay(days) {
     }
 }
 
-// // Display actual weather by IP
-// function displayLocalWeatherByIP (Location) {
-//     getWeatherInformations(defaultMethod, Location, apiKey, defaultLanguage, forcastDays).then(data => {
-//             // if all is ok just copy data into global weather
-//             weather = data;
-
-//             console.log('Temps actuel selon la localisation IP', weather)
-//         })
-// }
 
 // display UV average
 function displayUvAverage(object) {
@@ -91,6 +82,11 @@ function displayUvAverage(object) {
     uvNode.appendChild(templateClone);
 }
 
+// display sunrise and sunset hours
 
+function displaySunriseAndSunsetHours(array) {
+    document.getElementById('sun-sunset').textContent = array.astronomy.astro.sunset;
+    document.getElementById('sun-sunrise').textContent = array.astronomy.astro.sunrise;
+}
 
 

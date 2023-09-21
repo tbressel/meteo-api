@@ -25,7 +25,7 @@ const speed = 1 / 24;
 let t = 0;
 
 // Élément d'information dans le DOM
-const infoElement = document.getElementById("info-container");
+// const infoElement = document.getElementById("info-container");
 
 // Heure précédente enregistrée
 let previousHour = null;

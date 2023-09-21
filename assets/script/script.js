@@ -4,11 +4,13 @@ let defaultTown = '';
 const defaultMethod = '/forecast.json';
 const IPLocationMethod = '/ip.json';
 const searchMethod = '/search.json;'
+const sunMethod = '/astronomy.json';
 const defaultLanguage = 'fr';
 const forcastDays = 14;
 let date = new Date();
 let hour = date.getHours()
 let weather = [];
+let SunriseAndSunset = [];
 let LocationByIp = '';
 let background = {
     nuit: './medias/img/GrandeOurse.jpg',
@@ -83,25 +85,25 @@ if ("geolocation" in navigator) {
 // coords =  getLocalisationCitybyCoords (IPLocationMethod,apiKey);
 // ------------------------------------------------------------------------
 
-// Another methode with an external API service
-// getClientIp()
-//   .then(coords => {
-//     // fist display of meteo location 
-//     getWeatherInformations(defaultMethod, coords, apiKey, defaultLanguage, forcastDays)
-//     .then(data => {
-//     // if all is ok just copy data into global weather
-//     weather = data;
-// })
-//   })
-//   .catch(error => {
-//     console.error('çà ne fonctionne pas', error);
-//   });
+ 
+// get sun informations
+getSunriseAndSunsetHours(sunMethod, coords, apiKey).then(data => {
+
+    SunriseAndSunset = data;
+    console.log (data)
+        })
+
 
 // fist display of meteo location 
 getWeatherInformations(defaultMethod, coords, apiKey, defaultLanguage, forcastDays).then(data => {
     // if all is ok just copy data into global weather
     weather = data;
+
+    console.log('data = ',data)
 })
+
+
+
 
 
 // Listening to the burger button and toggle 
@@ -145,4 +147,6 @@ document.getElementById("search-input").addEventListener('input', (event) => {
     // show autocomplet list array in DOM option tag 
     displayListInField(autocompletList);
 })
+
+
 
